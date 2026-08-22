@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Public source documents for the Kitami Gomi AI agent, including Kitami City waste collection calendars, household waste guides, and waste dictionaries in Japanese and English.">
+  <meta name="robots" content="index, follow">
+  <title>Kitami Gomi AI | Source Documents</title>
+
+  <style>
+    :root {
+      --primary: #0b5cab;
+      --primary-dark: #073f78;
+      --accent: #e8f2fc;
+      --background: #f5f7fa;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #5f6b7a;
+      --border: #d9e1ea;
+      --success: #16794b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.6;
+    }
+
+    header {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      padding: 52px 20px;
+    }
+
+    .header-content,
+    main,
+    footer {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.15;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0;
+      color: #e8f2fc;
+      font-size: 1.08rem;
+    }
+
+    main { padding: 36px 0 48px; }
+
+    .info {
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      background: var(--accent);
+      border: 1px solid #bfd9f4;
+      border-left: 5px solid var(--primary);
+      border-radius: 10px;
+    }
+
+    .info strong { color: var(--primary-dark); }
+
+    h2 {
+      margin: 34px 0 16px;
+      font-size: 1.55rem;
+    }
+
+    .document-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      gap: 18px;
+    }
+
+    .document-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 5px 18px rgba(31, 41, 55, 0.06);
+    }
+
+    .document-card:hover {
+      border-color: #9bc4eb;
+      box-shadow: 0 8px 24px rgba(31, 41, 55, 0.10);
+    }
+
+    .tag {
+      align-self: flex-start;
+      display: inline-block;
+      padding: 3px 10px;
+      color: var(--success);
+      background: #eaf7f0;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .document-card h3 {
+      margin: 13px 0 8px;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+
+    .document-card p {
+      flex: 1;
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .document-card a {
+      display: inline-block;
+      padding: 10px 14px;
+      color: #ffffff;
+      background: var(--primary);
+      border-radius: 7px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    .document-card a:hover,
+    .document-card a:focus {
+      background: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .agent-note {
+      margin-top: 32px;
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    code {
+      padding: 2px 6px;
+      background: #edf1f5;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      padding: 24px 0 34px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 38px 16px; }
+      main { padding-top: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Kitami Gomi AI</h1>
+      <p>
+        Public source documents concerning household waste separation,
+        collection schedules, and disposal guidance for Kitami City.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="info" aria-label="Knowledge source information">
+      <strong>Agent knowledge source:</strong>
+      This page provides direct public links to the reference PDF documents used to test a Microsoft Copilot agent.
+    </section>
+
+    <h2>Japanese Documents</h2>
+    <section class="document-grid" aria-label="Japanese source documents">
+      <article class="document-card">
+        <span class="tag">日本語 PDF</span>
+        <h3>Kitami Collection Calendar 2026</h3>
+        <p>Kitami City waste and recyclable collection calendar for 2026 in Japanese.</p>
+        <a href="source_documents/01_kitami_collection_calendar_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+
+      <article class="document-card">
+        <span class="tag">日本語 PDF</span>
+        <h3>Kitami Household Waste Guide 2026</h3>
+        <p>Guidance on household waste sorting, preparation, collection, and disposal in Japanese.</p>
+        <a href="source_documents/02_kitami_household_waste_guide_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+
+      <article class="document-card">
+        <span class="tag">日本語 PDF</span>
+        <h3>Kitami Waste Dictionary 2026</h3>
+        <p>A reference dictionary for identifying waste categories and disposal methods in Japanese.</p>
+        <a href="source_documents/03_kitami_waste_dictionary_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+    </section>
+
+    <h2>English Documents</h2>
+    <section class="document-grid" aria-label="English source documents">
+      <article class="document-card">
+        <span class="tag">English PDF</span>
+        <h3>Kitami Collection Calendar 2026</h3>
+        <p>Kitami City waste and recyclable collection calendar for 2026 in English.</p>
+        <a href="source_documents/04_kitami_collection_calendar_2026_en.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+
+      <article class="document-card">
+        <span class="tag">English PDF</span>
+        <h3>Kitami Household Waste Guide 2026</h3>
+        <p>Guidance on household waste sorting, preparation, collection, and disposal in English.</p>
+        <a href="source_documents/05_kitami_household_waste_guide_2026_en.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </article>
+    </section>
+
+    <section class="agent-note">
+      <h2>About This Test Source</h2>
+      <p>
+        The documents listed above are publicly reachable from this page. The root GitHub Pages URL for this page can be submitted as a public website knowledge source when configuring the test agent.
+      </p>
+      <p>
+        Repository structure: <code>index.html</code> at the repository root and all PDF files inside <code>source_documents/</code>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Kitami Gomi AI source-document index. Verify disposal instructions against the original official PDF documents.</p>
+  </footer>
+</body>
+</html>
