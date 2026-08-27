@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Source authority, provenance, file mapping, and verification register for the Kitami Gomi AI research prototype.">
+  <meta name="robots" content="index, follow">
+  <title>Source Register | Kitami Gomi AI</title>
+  <style>
+    :root{--blue:#0b5cab;--dark:#073f78;--bg:#f5f7fa;--surface:#fff;--text:#1f2937;--muted:#5f6b7a;--border:#d9e1ea;--note:#e8f2fc;--warning:#fff7df}
+    *{box-sizing:border-box}body{margin:0;font-family:"Segoe UI","Noto Sans JP",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.68}header{padding:42px 20px;color:#fff;background:linear-gradient(135deg,var(--dark),var(--blue))}.wrap{width:min(1000px,calc(100% - 32px));margin:auto}h1{margin:0 0 8px;font-size:clamp(2rem,5vw,3rem);line-height:1.2}header p{margin:0;color:#e8f2fc}main{margin-top:28px;margin-bottom:42px;padding:30px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:0 5px 18px rgba(31,41,55,.06)}h2{margin:34px 0 12px;color:var(--dark);border-bottom:2px solid #dbeaf8;padding-bottom:7px}h3{margin:0 0 10px;color:#164f86}.notice{padding:16px 18px;background:var(--warning);border-left:5px solid #d49b00;border-radius:8px}.source,.derived{margin:18px 0;padding:20px;border:1px solid var(--border);border-radius:10px;background:#fbfdff}.authority{padding:16px 20px;background:var(--note);border-radius:8px}li{margin:5px 0}code{padding:2px 5px;background:#edf1f5;border-radius:4px;overflow-wrap:anywhere}.tree{padding:16px;overflow:auto;background:#17212b;color:#eef5fb;border-radius:8px;white-space:pre}.back{display:inline-block;margin-top:24px;color:var(--blue);font-weight:650;text-decoration:none}.back:hover{text-decoration:underline}footer{width:min(1000px,calc(100% - 32px));margin:auto;padding:0 0 30px;color:var(--muted);font-size:.92rem}@media(max-width:650px){main{padding:20px}header{padding:34px 16px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap"><h1>Kitami Gomi AI Source Register</h1><p>Source authority, provenance, file mapping, and verification record</p></div></header>
+<main class="wrap">
+  <div class="notice"><strong>Prototype notice:</strong> This register documents the sources and derived files used by the research prototype. Original official PDF documents remain unchanged and authoritative.</div>
+
+  <h2>1. Purpose</h2>
+  <p>This register documents the official source documents used for the Kitami household-waste prototype. It assigns each source a Japanese title, English title, standardized filename, role, priority, and verification status.</p>
+
+  <h2>2. Source Authority Order</h2>
+  <ol class="authority">
+    <li><strong>Japanese item dictionary</strong> for item-specific classification and disposal instructions.</li>
+    <li><strong>Japanese household sorting guide</strong> for category rules, bag colors, size limits, preparation, and safety requirements.</li>
+    <li><strong>Official area calendar</strong> for collection weekdays and dates.</li>
+    <li><strong>English sorting guide</strong> for resident-facing English explanations.</li>
+    <li>If an answer remains uncertain, do not guess. Refer the user to Kitami City Waste Management Division.</li>
+  </ol>
+
+  <h2>3. Official Source Documents</h2>
+  <section class="source"><h3>Source 1: Japanese Collection Calendar</h3><ul>
+    <li><strong>Original filename:</strong> <code>content_20260311_134119.pdf</code></li><li><strong>Japanese label:</strong> 令和8年度 北見自治区ごみカレンダー（対象地域版）</li><li><strong>English label:</strong> FY2026 Kitami Autonomous Region Waste Collection Calendar - Selected Area</li><li><strong>Recommended filename:</strong> <code>01_kitami_collection_calendar_2026_ja.pdf</code></li><li><strong>Language:</strong> Japanese</li><li><strong>Coverage:</strong> Selected prototype collection area containing multiple neighborhoods</li><li><strong>Validity:</strong> April 1, 2026 to March 31, 2027</li><li><strong>Role:</strong> Japanese calendar reference and cross-check for the selected service area</li><li><strong>Derived output:</strong> <code>collection_schedule.json</code></li><li><strong>Verification role:</strong> Secondary calendar verification</li><li><strong>Note:</strong> The visual calendar is authoritative because plain-text extraction is distorted by its graphical layout.</li>
+  </ul></section>
+
+  <section class="source"><h3>Source 2: Japanese Household Sorting Guide</h3><ul>
+    <li><strong>Original filename:</strong> <code>content_20260331_132719.pdf</code></li><li><strong>Japanese label:</strong> 北見自治区のごみの分け方・出し方【家庭用】2026年改訂版</li><li><strong>English label:</strong> Kitami Autonomous Region Household Waste Sorting and Disposal Guide - 2026 Revised Edition</li><li><strong>Recommended filename:</strong> <code>02_kitami_household_waste_guide_2026_ja.pdf</code></li><li><strong>Language:</strong> Japanese</li><li><strong>Coverage:</strong> Kitami Autonomous Region household waste</li><li><strong>Edition:</strong> 2026 revised edition</li><li><strong>Role:</strong> Authoritative general rules for categories, bags, preparation, size limits, special handling, and safety</li><li><strong>Derived output:</strong> <code>general_rules.md</code></li><li><strong>Verification:</strong> Visually inspected and structured for the prototype</li>
+  </ul></section>
+
+  <section class="source"><h3>Source 3: Japanese Item Dictionary</h3><ul>
+    <li><strong>Original filename:</strong> <code>content_20260611_094048.pdf</code></li><li><strong>Japanese label:</strong> 令和8年度 ごみの区分け辞典（北見自治区）</li><li><strong>English label:</strong> FY2026 Waste Separation Dictionary - Kitami Autonomous Region</li><li><strong>Recommended filename:</strong> <code>03_kitami_waste_dictionary_2026_ja.pdf</code></li><li><strong>Language:</strong> Japanese</li><li><strong>Coverage:</strong> Kitami Autonomous Region household items</li><li><strong>Length:</strong> 40 pages</li><li><strong>Role:</strong> Primary authoritative source for item-level categories, conditions, exceptions, and instructions</li><li><strong>Derived output:</strong> <code>waste_dictionary.json</code></li><li><strong>Verification:</strong> All 1,128 table records extracted; JSON structure validated; representative records spot-checked</li>
+  </ul></section>
+
+  <section class="source"><h3>Source 4: English Collection Calendar</h3><ul>
+    <li><strong>Original filename:</strong> <code>content_20260611_110932.pdf</code></li><li><strong>Japanese label:</strong> 令和8年度 北見自治区ごみカレンダー（対象地域・英語版）</li><li><strong>English label:</strong> FY2026 Kitami Autonomous Region Waste Collection Calendar - Selected Area, English Edition</li><li><strong>Recommended filename:</strong> <code>04_kitami_collection_calendar_2026_en.pdf</code></li><li><strong>Language:</strong> English</li><li><strong>Coverage:</strong> Same selected prototype collection area as Source 1</li><li><strong>Validity:</strong> April 1, 2026 to March 31, 2027</li><li><strong>Role:</strong> Main readable calendar source used to structure recurrence and exact dates</li><li><strong>Derived output:</strong> <code>collection_schedule.json</code></li><li><strong>Verification:</strong> Visually inspected; recurrence rules converted to exact dates; dates validated programmatically</li>
+  </ul></section>
+
+  <section class="source"><h3>Source 5: English Household Sorting Guide</h3><ul>
+    <li><strong>Original filename:</strong> <code>content_20260709_111803.pdf</code></li><li><strong>Japanese label:</strong> 北見市 ごみの分け方・出し方（北見自治区・英語版）</li><li><strong>English label:</strong> Kitami City: How to Separate Trash - Kitami Autonomous Region, English Edition</li><li><strong>Recommended filename:</strong> <code>05_kitami_household_waste_guide_2026_en.pdf</code></li><li><strong>Language:</strong> English</li><li><strong>Coverage:</strong> Kitami Autonomous Region household waste</li><li><strong>Edition:</strong> April 2026</li><li><strong>Role:</strong> Resident-facing English explanations and terminology</li><li><strong>Derived output:</strong> <code>english_guide.md</code></li><li><strong>Verification:</strong> All 16 pages visually inspected and reorganized into readable Markdown</li><li><strong>Authority limitation:</strong> Japanese dictionary and Japanese rules take priority when English wording is incomplete or ambiguous.</li>
+  </ul></section>
+
+  <h2>4. Derived Knowledge-Base Files</h2>
+  <section class="derived"><h3><code>general_rules.md</code></h3><p><strong>Japanese:</strong> 北見自治区 家庭ごみ基本分別ルール<br><strong>English:</strong> Kitami Household Waste General Rules<br><strong>Primary source:</strong> Source 2<br><strong>Function:</strong> Category definitions, bag rules, preparation, thresholds, safety logic, and bot decision order.</p></section>
+  <section class="derived"><h3><code>waste_dictionary.json</code></h3><p><strong>Japanese:</strong> 北見自治区 品目別ごみ分別データ<br><strong>English:</strong> Kitami Item-Level Waste Separation Data<br><strong>Primary source:</strong> Source 3<br><strong>Function:</strong> Searchable item-level classification and disposal instructions.</p></section>
+  <section class="derived"><h3><code>collection_schedule.json</code></h3><p><strong>Japanese:</strong> 北見自治区 対象地域ごみ収集日程データ<br><strong>English:</strong> Kitami Selected-Area Waste Collection Schedule Data<br><strong>Primary source:</strong> Source 4<br><strong>Verification source:</strong> Source 1<br><strong>Function:</strong> Neighborhood coverage, recurrence rules, and exact collection dates.</p></section>
+  <section class="derived"><h3><code>english_guide.md</code></h3><p><strong>Japanese:</strong> 北見自治区 ごみ分別英語案内データ<br><strong>English:</strong> Kitami Waste Sorting English Guidance<br><strong>Primary source:</strong> Source 5<br><strong>Function:</strong> Clear English explanations for prototype responses.</p></section>
+  <section class="derived"><h3><code>source_register.md</code></h3><p><strong>Japanese:</strong> 北見LINE Bot 情報源管理台帳<br><strong>English:</strong> Kitami LINE Bot Source Register<br><strong>Function:</strong> Source identity, authority, provenance, file mapping, and verification record.</p></section>
+
+  <h2>5. Recommended Project Structure</h2>
+  <pre class="tree">gomi-agent-source-documents/
+├── source_documents/
+│   ├── 01_kitami_collection_calendar_2026_ja.pdf
+│   ├── 02_kitami_household_waste_guide_2026_ja.pdf
+│   ├── 03_kitami_waste_dictionary_2026_ja.pdf
+│   ├── 04_kitami_collection_calendar_2026_en.pdf
+│   └── 05_kitami_household_waste_guide_2026_en.pdf
+├── machine_readable/
+│   ├── general_rules.md
+│   ├── waste_dictionary.json
+│   ├── collection_schedule.json
+│   ├── english_guide.md
+│   └── source_register.md
+└── machine_readable_rendered/
+    ├── general-rules.html
+    ├── english-guide.html
+    └── source-register.html</pre>
+
+  <h2>6. File-Management Rule</h2><ul>
+    <li>Keep original PDF content unchanged.</li><li>Rename only local copies using standardized filenames.</li><li>Do not edit or overwrite official source PDFs.</li><li>Keep original filenames recorded for traceability.</li><li>Store each new municipal edition as a new file and update its validity and edition fields rather than silently replacing the old source.</li>
+  </ul>
+
+  <h2>7. Prototype Provenance Rule</h2><p>Every answer should ultimately be traceable to an item record in <code>waste_dictionary.json</code> when available, the applicable rule in <code>general_rules.md</code>, the next valid date in <code>collection_schedule.json</code>, and <code>english_guide.md</code> only for clear English phrasing. If required official evidence is missing, the prototype must state that the result is uncertain rather than inventing an instruction.</p>
+
+  <a class="back" href="../index.html">&#8592; Back to source-document index</a>
+</main>
+<footer><p>Kitami Gomi AI · Experimental research prototype · Source provenance and verification register</p></footer>
+</body>
+</html>

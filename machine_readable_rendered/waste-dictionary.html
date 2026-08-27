@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Searchable rendered view of the FY2026 Kitami Autonomous Region waste separation dictionary.">
+  <meta name="robots" content="index, follow">
+  <title>Waste Dictionary | Kitami Gomi AI</title>
+  <style>
+    :root{--blue:#0b5cab;--dark:#073f78;--bg:#f5f7fa;--surface:#fff;--text:#1f2937;--muted:#5f6b7a;--border:#d9e1ea;--note:#e8f2fc;--warning:#fff7df}
+    *{box-sizing:border-box}body{margin:0;font-family:"Segoe UI","Noto Sans JP",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}header{padding:42px 20px;color:#fff;background:linear-gradient(135deg,var(--dark),var(--blue))}.wrap{width:min(1150px,calc(100% - 32px));margin:auto}h1{margin:0 0 8px;font-size:clamp(2rem,5vw,3rem)}header p{margin:0;color:#e8f2fc}main{margin-top:28px;margin-bottom:42px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:0 5px 18px rgba(31,41,55,.06)}.notice{padding:16px 18px;background:var(--warning);border-left:5px solid #d49b00;border-radius:8px}.meta{margin:20px 0;padding:16px 18px;background:var(--note);border-radius:8px}.controls{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin:22px 0}.controls input,.controls select{width:100%;padding:12px;border:1px solid #aebdca;border-radius:8px;font:inherit;background:#fff}.status{margin:8px 0 16px;color:var(--muted)}.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:9px}table{width:100%;border-collapse:collapse;min-width:850px}th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}thead{position:sticky;top:0;background:#e8f2fc;z-index:1}tbody tr:nth-child(even){background:#fafcfe}.item{font-weight:700;font-size:1.04rem}.instructions{white-space:pre-line}.tag{display:inline-block;padding:3px 8px;border-radius:999px;background:#e8f2fc;color:var(--dark);font-size:.88rem}code{padding:2px 5px;background:#edf1f5;border-radius:4px}.back{display:inline-block;margin-top:22px;color:var(--blue);font-weight:650;text-decoration:none}.back:hover{text-decoration:underline}.error{padding:16px;background:#fdecec;color:#8a1c1c;border-radius:8px}footer{width:min(1150px,calc(100% - 32px));margin:auto;padding:0 0 30px;color:var(--muted);font-size:.92rem}@media(max-width:700px){main{padding:18px}.controls{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header><div class="wrap"><h1>ごみ区分け辞典</h1><p>FY2026 Kitami Item-Level Waste Separation Dictionary</p></div></header>
+<main class="wrap">
+  <div class="notice"><strong>Prototype notice:</strong> This searchable page renders the derived JSON dataset. The original official Japanese PDF remains the authoritative reference.</div>
+  <section class="meta" id="metadata"><strong>Loading dictionary metadata...</strong></section>
+  <div class="controls">
+    <label><span>Search item or instructions</span><input id="search" type="search" placeholder="例: アイロン、電池、ペットボトル" autocomplete="off"></label>
+    <label><span>Waste category</span><select id="category"><option value="">All categories</option></select></label>
+  </div>
+  <p class="status" id="status">Loading records...</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item / 品目</th><th>Category / 区分</th><th>Instructions / 出し方</th><th>Source</th></tr></thead>
+      <tbody id="records"></tbody>
+    </table>
+  </div>
+  <noscript><p class="error">JavaScript is required to render the searchable dictionary.</p></noscript>
+  <a class="back" href="../index.html">&#8592; Back to source-document index</a>
+</main>
+<footer><p>Kitami Gomi AI · Experimental research prototype · Searchable rendered dictionary</p></footer>
+<script>
+const DATA_URL = '../machine_readable/waste_dictionary.json';
+const LIMIT = 200;
+let allRecords = [];
+const esc = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+function render(){
+  const q = document.getElementById('search').value.trim().toLocaleLowerCase('ja');
+  const category = document.getElementById('category').value;
+  const filtered = allRecords.filter(r => {
+    const text = `${r.item_ja || ''} ${r.category_ja || ''} ${r.instructions_ja || ''} ${r.id || ''}`.toLocaleLowerCase('ja');
+    return (!q || text.includes(q)) && (!category || r.category_id === category);
+  });
+  const shown = filtered.slice(0, LIMIT);
+  document.getElementById('records').innerHTML = shown.map(r => `<tr id="${esc(r.id)}"><td><span class="item" lang="ja">${esc(r.item_ja)}</span><br><code>${esc(r.id)}</code></td><td><span class="tag" lang="ja">${esc(r.category_ja)}</span><br><code>${esc(r.category_id)}</code></td><td class="instructions" lang="ja">${esc(r.instructions_ja || '記載なし')}</td><td>Page ${esc(r.source_page)}<br><code>${esc(r.verification_status)}</code></td></tr>`).join('');
+  const suffix = filtered.length > LIMIT ? ` Showing the first ${LIMIT}; refine the search to narrow the results.` : '';
+  document.getElementById('status').textContent = `${filtered.length.toLocaleString()} matching record(s).${suffix}`;
+}
+fetch(DATA_URL).then(r => {if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json();}).then(data => {
+  allRecords = Array.isArray(data.records) ? data.records : [];
+  document.getElementById('metadata').innerHTML = `<strong>Dataset metadata</strong><ul><li>Jurisdiction: ${esc(data.jurisdiction)}</li><li>Edition: ${esc(data.edition)}</li><li>Language: ${esc(data.language)}</li><li>Records: ${Number(data.record_count || allRecords.length).toLocaleString()}</li><li>Source: <code>${esc(data.source_file)}</code></li></ul>`;
+  const categories = [...new Map(allRecords.map(r => [r.category_id, r.category_ja])).entries()].sort((a,b) => String(a[1]).localeCompare(String(b[1]), 'ja'));
+  document.getElementById('category').innerHTML += categories.map(([id,label]) => `<option value="${esc(id)}">${esc(label)} (${esc(id)})</option>`).join('');
+  render();
+}).catch(err => {
+  document.getElementById('status').innerHTML = `<span class="error">Could not load <code>${esc(DATA_URL)}</code>. Confirm that this HTML file is inside <code>machine_readable_rendered</code> and the JSON file is inside <code>machine_readable</code>. ${esc(err.message)}</span>`;
+});
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('category').addEventListener('change', render);
+</script>
+</body>
+</html>
