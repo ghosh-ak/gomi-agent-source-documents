@@ -3,45 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Public source documents for the Kitami Gomi AI prototype.">
+  <meta name="description" content="Public source documents and derived machine-readable resources for the Kitami Gomi AI prototype.">
   <meta name="robots" content="index, follow">
   <title>Kitami Gomi AI | Source Documents</title>
   <style>
-    :root{--blue:#0b5cab;--dark:#073f78;--bg:#f5f7fa;--card:#fff;--text:#1f2937;--muted:#5f6b7a;--border:#d9e1ea}
-    *{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+    :root{--blue:#0b5cab;--dark:#073f78;--bg:#f5f7fa;--card:#fff;--text:#1f2937;--muted:#5f6b7a;--border:#d9e1ea;--soft:#e8f2fc}
+    *{box-sizing:border-box}body{margin:0;font-family:"Segoe UI","Noto Sans JP",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
     header{padding:48px 20px;color:#fff;background:linear-gradient(135deg,var(--dark),var(--blue))}
     header div,main,footer{width:min(1040px,calc(100% - 32px));margin:auto}h1{margin:0 0 8px;font-size:clamp(2rem,5vw,3.2rem)}header p{margin:0;color:#e8f2fc}
-    main{padding:34px 0 48px}.notice{padding:17px 19px;background:#e8f2fc;border-left:5px solid var(--blue);border-radius:9px}
+    main{padding:34px 0 48px}.notice{padding:17px 19px;background:var(--soft);border-left:5px solid var(--blue);border-radius:9px}
     h2{margin:32px 0 15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:17px}
     article{display:flex;flex-direction:column;padding:21px;background:var(--card);border:1px solid var(--border);border-radius:11px;box-shadow:0 5px 16px rgba(31,41,55,.06)}
-    article h3{margin:0 0 8px}article p{flex:1;margin:0 0 17px;color:var(--muted)}article a{padding:10px 13px;color:#fff;background:var(--blue);border-radius:7px;text-align:center;text-decoration:none;font-weight:650}article a:hover{background:var(--dark)}
+    article h3{margin:0 0 8px}article p{flex:1;margin:0 0 17px;color:var(--muted)}.actions{display:grid;gap:9px}.actions.two{grid-template-columns:1fr 1fr}
+    .actions a{padding:10px 12px;color:#fff;background:var(--blue);border-radius:7px;text-align:center;text-decoration:none;font-weight:650}.actions a:hover{background:var(--dark)}
+    .actions a.secondary{color:var(--blue);background:#fff;border:1px solid var(--blue)}.actions a.secondary:hover{color:#fff;background:var(--dark)}
+    .filetype{display:inline-block;margin-bottom:8px;color:var(--dark);font-size:.86rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
     footer{padding:24px 0 34px;color:var(--muted);border-top:1px solid var(--border);font-size:.93rem}.footer-links{margin-top:8px}.footer-links a{color:var(--blue);font-weight:600;text-decoration:none}.footer-links a:hover{text-decoration:underline}
+    @media(max-width:440px){.actions.two{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 <header><div><h1>Kitami Gomi AI</h1><p>Public waste-separation, disposal, and collection reference documents for Kitami City.</p></div></header>
 <main>
-  <section class="notice"><strong>Prototype source:</strong> These documents support testing of the Kitami Gomi AI research prototype. Always verify guidance against the original official documents.</section>
-  <h2>Japanese Documents</h2>
+  <section class="notice"><strong>Prototype source:</strong> These official PDFs and derived machine-readable resources support testing of the Kitami Gomi AI research prototype. Always verify guidance against the original official documents.</section>
+
+  <h2>Japanese Official Documents</h2>
   <section class="grid">
-    <article><h3>Kitami Collection Calendar 2026</h3><p>Japanese waste and recyclable collection calendar.</p><a href="source_documents/01_kitami_collection_calendar_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a></article>
-    <article><h3>Kitami Household Waste Guide 2026</h3><p>Japanese household waste sorting and disposal guide.</p><a href="source_documents/02_kitami_household_waste_guide_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a></article>
-    <article><h3>Kitami Waste Dictionary 2026</h3><p>Japanese reference for waste categories and disposal methods.</p><a href="source_documents/03_kitami_waste_dictionary_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a></article>
+    <article><span class="filetype">Official PDF</span><h3>Kitami Collection Calendar 2026</h3><p>Japanese waste and recyclable collection calendar.</p><div class="actions"><a href="source_documents/01_kitami_collection_calendar_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a></div></article>
+    <article><span class="filetype">Official PDF</span><h3>Kitami Household Waste Guide 2026</h3><p>Japanese household waste sorting and disposal guide.</p><div class="actions"><a href="source_documents/02_kitami_household_waste_guide_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a></div></article>
+    <article><span class="filetype">Official PDF</span><h3>Kitami Waste Dictionary 2026</h3><p>Japanese item-level reference for waste categories and disposal methods.</p><div class="actions"><a href="source_documents/03_kitami_waste_dictionary_2026_ja.pdf" target="_blank" rel="noopener">Open PDF</a></div></article>
   </section>
-  <h2>English Documents</h2>
+
+  <h2>English Official Documents</h2>
   <section class="grid">
-    <article><h3>Kitami Collection Calendar 2026</h3><p>English waste and recyclable collection calendar.</p><a href="source_documents/04_kitami_collection_calendar_2026_en.pdf" target="_blank" rel="noopener">Open PDF</a></article>
-    <article><h3>Kitami Household Waste Guide 2026</h3><p>English household waste sorting and disposal guide.</p><a href="source_documents/05_kitami_household_waste_guide_2026_en.pdf" target="_blank" rel="noopener">Open PDF</a></article>
+    <article><span class="filetype">Official PDF</span><h3>Kitami Collection Calendar 2026</h3><p>English waste and recyclable collection calendar.</p><div class="actions"><a href="source_documents/04_kitami_collection_calendar_2026_en.pdf" target="_blank" rel="noopener">Open PDF</a></div></article>
+    <article><span class="filetype">Official PDF</span><h3>Kitami Household Waste Guide 2026</h3><p>English household waste sorting and disposal guide.</p><div class="actions"><a href="source_documents/05_kitami_household_waste_guide_2026_en.pdf" target="_blank" rel="noopener">Open PDF</a></div></article>
+  </section>
+
+  <h2>Rendered and Machine-Readable Resources</h2>
+  <section class="grid">
+    <article><span class="filetype">Markdown + HTML</span><h3>General Waste Rules</h3><p>Category definitions, bag rules, preparation requirements, thresholds, safety logic, and prototype decision rules.</p><div class="actions two"><a href="machine_readable_rendered/general-rules.html">View HTML</a><a class="secondary" href="machine_readable/general_rules.md" download>Download MD</a></div></article>
+    <article><span class="filetype">Markdown + HTML</span><h3>English Waste Guide</h3><p>Resident-facing English explanations derived from the official English household sorting guide.</p><div class="actions two"><a href="machine_readable_rendered/english-guide.html">View HTML</a><a class="secondary" href="machine_readable/english_guide.md" download>Download MD</a></div></article>
+    <article><span class="filetype">Markdown + HTML</span><h3>Source Register</h3><p>Source authority, provenance, standardized filenames, verification status, and derived-file mapping.</p><div class="actions two"><a href="machine_readable_rendered/source-register.html">View HTML</a><a class="secondary" href="machine_readable/source_register.md" download>Download MD</a></div></article>
+    <article><span class="filetype">JSON + HTML</span><h3>Collection Schedule</h3><p>Selected-area recurrence rules, exact collection dates, neighborhood coverage, and verification details.</p><div class="actions two"><a href="machine_readable_rendered/collection-schedule.html">View HTML</a><a class="secondary" href="machine_readable/collection_schedule.json" download>Download JSON</a></div></article>
+    <article><span class="filetype">JSON + HTML</span><h3>Waste Dictionary</h3><p>Searchable rendering and downloadable data for 1,128 Japanese item-level waste records.</p><div class="actions two"><a href="machine_readable_rendered/waste-dictionary.html">Search HTML</a><a class="secondary" href="machine_readable/waste_dictionary.json" download>Download JSON</a></div></article>
   </section>
 </main>
 <footer>
   <p>Kitami Gomi AI source-document index. Verify disposal instructions against the original official PDF documents.</p>
   <nav class="footer-links" aria-label="Legal and project information">
-    <a href="./privacy.html">Privacy Statement</a>
-    <span aria-hidden="true"> | </span>
-    <a href="./terms.html">Terms of Use</a>
-    <span aria-hidden="true"> | </span>
-    <a href="https://ghosh-ak.github.io/site/" target="_blank" rel="noopener noreferrer">Creator Website</a>
+    <a href="./privacy.html">Privacy Statement</a><span aria-hidden="true"> | </span><a href="./terms.html">Terms of Use</a><span aria-hidden="true"> | </span><a href="https://ghosh-ak.github.io/site/" target="_blank" rel="noopener noreferrer">Creator Website</a>
   </nav>
 </footer>
 </body>
